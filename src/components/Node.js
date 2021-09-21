@@ -14,6 +14,12 @@ import {
 import colors from "../constants/colors";
 import Status from "./Status";
 
+function padStart(number) {
+  const numberWithLeandingZeros = number.padStart(3, "0");
+
+  return numberWithLeandingZeros;
+}
+
 const Node = ({ node, expanded, toggleNodeExpanded }) => {
   const classes = useStyles();
   const [blocks, setBlocks] = useState([]);
@@ -82,7 +88,7 @@ const Node = ({ node, expanded, toggleNodeExpanded }) => {
         blocks.map((block) => (
           <AccordionDetails className={classes.blocksContainer} key={block.id}>
             <Typography className={classes.blockOrderNumber}>
-              {block.id}
+              {padStart(block.id)}
             </Typography>
             <Typography className={classes.blockContent}>
               {block.attributes.data}
