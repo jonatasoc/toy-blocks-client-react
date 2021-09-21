@@ -8,6 +8,8 @@ const colors = {
   contentBackground: "#f8f8f8",
   border: "#aaaaaa",
   white: "#ffffff",
+  blocksContainerBackground: "rgba(0, 0, 0, 0.12)",
+  primaryText: "#304FFE",
 };
 
 export default colors;
