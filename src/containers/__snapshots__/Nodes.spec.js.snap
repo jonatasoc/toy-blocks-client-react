@@ -43,10 +43,10 @@ exports[`<Nodes /> should match snapshot 1`] = `
         className="MuiAccordionSummary-content makeStyles-content-6"
       >
         <div
-          className="MuiBox-root MuiBox-root-10 makeStyles-summaryContent-4"
+          className="MuiBox-root MuiBox-root-14 makeStyles-summaryContent-4"
         >
           <div
-            className="MuiBox-root MuiBox-root-11"
+            className="MuiBox-root MuiBox-root-15"
           >
             <h5
               className="MuiTypography-root makeStyles-heading-8 MuiTypography-h5"
@@ -60,13 +60,13 @@ exports[`<Nodes /> should match snapshot 1`] = `
             </h6>
           </div>
           <div
-            className="MuiBox-root MuiBox-root-16"
+            className="MuiBox-root MuiBox-root-20"
           >
             <span
-              className="makeStyles-dot-12 makeStyles-dot-14"
+              className="makeStyles-dot-16 makeStyles-dot-18"
             />
             <span
-              className="makeStyles-text-13 makeStyles-text-15"
+              className="makeStyles-text-17 makeStyles-text-19"
             >
               OFFLINE
             </span>
@@ -125,13 +125,29 @@ exports[`<Nodes /> should match snapshot 1`] = `
             role="region"
           >
             <div
-              className="MuiAccordionDetails-root"
+              className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
             >
-              <p
-                className="MuiTypography-root MuiTypography-body1"
+              <svg
+                className="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
               >
-                Blocks go here
-              </p>
+                <circle
+                  className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx={44}
+                  cy={44}
+                  fill="none"
+                  r={20.2}
+                  strokeWidth={3.6}
+                  style={Object {}}
+                />
+              </svg>
             </div>
           </div>
         </div>
@@ -164,10 +180,10 @@ exports[`<Nodes /> should match snapshot 1`] = `
         className="MuiAccordionSummary-content makeStyles-content-6"
       >
         <div
-          className="MuiBox-root MuiBox-root-17 makeStyles-summaryContent-4"
+          className="MuiBox-root MuiBox-root-21 makeStyles-summaryContent-4"
         >
           <div
-            className="MuiBox-root MuiBox-root-18"
+            className="MuiBox-root MuiBox-root-22"
           >
             <h5
               className="MuiTypography-root makeStyles-heading-8 MuiTypography-h5"
@@ -181,13 +197,13 @@ exports[`<Nodes /> should match snapshot 1`] = `
             </h6>
           </div>
           <div
-            className="MuiBox-root MuiBox-root-21"
+            className="MuiBox-root MuiBox-root-25"
           >
             <span
-              className="makeStyles-dot-12 makeStyles-dot-19"
+              className="makeStyles-dot-16 makeStyles-dot-23"
             />
             <span
-              className="makeStyles-text-13 makeStyles-text-20"
+              className="makeStyles-text-17 makeStyles-text-24"
             >
               OFFLINE
             </span>
@@ -246,13 +262,29 @@ exports[`<Nodes /> should match snapshot 1`] = `
             role="region"
           >
             <div
-              className="MuiAccordionDetails-root"
+              className="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+              role="progressbar"
+              style={
+                Object {
+                  "height": 40,
+                  "width": 40,
+                }
+              }
             >
-              <p
-                className="MuiTypography-root MuiTypography-body1"
+              <svg
+                className="MuiCircularProgress-svg"
+                viewBox="22 22 44 44"
               >
-                Blocks go here
-              </p>
+                <circle
+                  className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                  cx={44}
+                  cy={44}
+                  fill="none"
+                  r={20.2}
+                  strokeWidth={3.6}
+                  style={Object {}}
+                />
+              </svg>
             </div>
           </div>
         </div>
