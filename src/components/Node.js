@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import {
@@ -8,12 +8,41 @@ import {
   AccordionDetails,
   makeStyles,
   Box,
+  CircularProgress,
 } from "@material-ui/core";
+
 import colors from "../constants/colors";
 import Status from "./Status";
 
 const Node = ({ node, expanded, toggleNodeExpanded }) => {
   const classes = useStyles();
+  const [blocks, setBlocks] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchBlocks = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(`${node.url}/api/v1/blocks`);
+
+        if (res.status >= 400) {
+          return;
+        }
+
+        const json = await res.json();
+
+        setBlocks(json.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlocks();
+  }, [node]);
+
   return (
     <Accordion
       elevation={3}
@@ -45,9 +74,22 @@ const Node = ({ node, expanded, toggleNodeExpanded }) => {
           <Status loading={node.loading} online={node.online} />
         </Box>
       </AccordionSummary>
-      <AccordionDetails>
-        <Typography>Blocks go here</Typography>
-      </AccordionDetails>
+      {isLoading ? (
+        <CircularProgress />
+      ) : error ? (
+        <p className={classes.error}>We couldn't load the block. Try again!</p>
+      ) : (
+        blocks.map((block) => (
+          <AccordionDetails className={classes.blocksContainer} key={block.id}>
+            <Typography className={classes.blockOrderNumber}>
+              {block.id}
+            </Typography>
+            <Typography className={classes.blockContent}>
+              {block.attributes.data}
+            </Typography>
+          </AccordionDetails>
+        ))
+      )}
     </Accordion>
   );
 };
@@ -95,6 +137,31 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(14),
     color: colors.faded,
     lineHeight: 2,
+  },
+  blocksContainer: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: colors.blocksContainerBackground,
+    margin: "0 13px 4px 13px",
+    borderRadius: "2px",
+  },
+  blockOrderNumber: {
+    color: colors.primaryText,
+    fontWeight: "bold",
+    fontSize: "10px",
+    lineHeight: "16px",
+    letterSpacing: "1.5px",
+    textTransform: "uppercase",
+  },
+  blockContent: {
+    color: colors.text,
+    fontSize: "14px",
+    lineHeight: "20px",
+    letterSpacing: ".25px",
+  },
+  error: {
+    padding: "0 24px",
+    color: colors.danger,
   },
 }));
 
